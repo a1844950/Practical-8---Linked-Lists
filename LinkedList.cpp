@@ -66,8 +66,8 @@ void LinkedList::printItems() {
 }
 
 /*Adds a note at the end of list*/
-void LinkedList::addEnd(int value) {
-    Node* item = new Node(value);
+void LinkedList::addEnd(int newItem) {
+    Node* item = new Node(newItem);
     item->next = nullptr;
     if (head == nullptr) {
         head = item;
@@ -80,8 +80,10 @@ void LinkedList::addEnd(int value) {
     temp->next = item;
 }
 
-void LinkedList::addFront(int value) {
-    Node* item = new Node(value);
+
+
+void LinkedList::addFront(int newItem) {
+    Node* item = new Node(newItem);
     if (head == nullptr) {
         head = item;
         return;
@@ -92,19 +94,17 @@ void LinkedList::addFront(int value) {
 }
 
 
-
-/*Adds node at index or at last if index is more than length*/
-void LinkedList::addAtPosition(int position, int value) {
+void LinkedList::addAtPosition(int position, int newItem) {
     position--;//convert to index
     if (position < 0) {
-        addFront(value);
+        addFront(newItem);
         return;
     }
     if (position > getLength()) {
-        addEnd(value);
+        addEnd(newItem);
         return;
     }
-    Node* item = new Node(value);
+    Node* item = new Node(newItem);
     item->next = nullptr;
     if (head == nullptr) {
         head = item;
@@ -218,10 +218,10 @@ void LinkedList::replaceAt(int index, Node* item) {
 
 }
 
-int LinkedList::search(int value) {
+int LinkedList::search(int item) {
     for (int i = 0; i < getLength(); ++i) {
         Node* pNode = get(i);
-        if (pNode->getVal() == value) {
+        if (pNode->getVal() == item) {
              cout << i + 1 << " " <<  endl;//printing position
          //   return pNode->getVal();
            return i + 1;

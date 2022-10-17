@@ -1,6 +1,8 @@
-#pragma once
-#include <iostream>
+#ifndef _LINKEDLIST_H
+#define _LINKEDLIST_H
+
 #include "Node.h"
+#include <iostream>
 using namespace std;
 
 class LinkedList {
@@ -16,17 +18,16 @@ public:
     int getItem(int position);
     int getLength() ;
     void printItems() ;
-    void addEnd(int value) ;
-    void addFront(int value) ;
-    void addAtPosition(int position, int value);
+    void addEnd(int newItem) ;
+    void addFront(int newItem) ;
+    void addAtPosition(int position, int newItem);
     void deletePosition(int position) ;
     void deleteFront() ;
     void deleteEnd();
     void removeNode(int value) ;
     void replaceAt(int index, Node *item);
-    int search(int value);
+    int search(int item);
 };
-
  
 
-
+#endif 

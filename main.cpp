@@ -1,20 +1,8 @@
 #include <iostream>
-#include<sstream>
+#include <sstream>
 #include "LinkedList.h"
 #include "string"
-#include "stdlib.h"
 using namespace std;
-
-#define N 100
-
-bool isOnlyNumbers(std::string& s, int start, int length) {
-    for (int i = start; i < length; i++) {
-        if (!isdigit(s.at(i))) {
-            return false;
-        }
-    }
-    return true;
-}
 
 bool isNumeric(std::string const& str)
 {
@@ -25,11 +13,9 @@ bool isNumeric(std::string const& str)
     return !str.empty() && it == str.end();
 }
 
-//45 20 2 10 GI 3 0
-
 int main() {
    
-    string strs[N+3];
+    string strs[100+3];
     string commend;
     bool exist = false;
     int numsize=0, argsize = 0;
@@ -54,10 +40,7 @@ int main() {
                 exist = true;
             }
         }
-        //for (int i = 0; i < numsize-argsize; i++)
-        //{
-        //    cout << strs[i] << " ";
-        //}
+
         int arrsize = numsize - argsize;
         int* arr = new int[arrsize];
         for (int i = 0; i < arrsize; i++)
@@ -65,11 +48,6 @@ int main() {
 
         LinkedList* list = new LinkedList(arr, arrsize);
 
-        //cout << "\n" << commend;
-        //for (int i = numsize - argsize; i < numsize; i++)
-        //{
-        //    cout << strs[i] << " ";
-        //}
         if (commend=="AF")
         {
             int i = numsize - argsize;
@@ -116,8 +94,5 @@ int main() {
 
         list->printItems();
 
-
-   
-
-
+        return 0;
 }
